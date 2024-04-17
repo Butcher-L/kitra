@@ -12,12 +12,12 @@ MYSQLDATABASE=kitra
 MYSQLUSERNAME=root
 MYSQLPASSWORD=admin
 ```
-5. Run the migration, first you need to run this
-```node migrations/migration.js ```
-   this script will create the tables and columns.
-   Next run this
-```node migrations/seeding.js ```
-   this script will populate each tables
-6. To start the api run ```npm start```
+5. Run the migration, first you need to run this \n
+```node migrations/migration.js ```\n
+   this script will create the tables and columns. \n
+   Next run this \n
+```node migrations/seeding.js ```\n
+   this script will populate each tables\n
+6. To start the api run ```npm start```\n
 
 
