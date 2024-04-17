@@ -1,6 +1,6 @@
 # Steps
 
-1. Clone the repo using this
+1. Clone the repo using this \n
 ```https://github.com/Butcher-L/kitra.git```
 2. Run ```npm install```
 3. Ensure that you stablish a database for the project
@@ -14,7 +14,7 @@ MYSQLPASSWORD=admin
 ```
 5. Run the migration, first you need to run this
 ```node migrations/migration.js ```
-   this script will create the deaded tables and columns.
+   this script will create the tables and columns.
    Next run this
 ```node migrations/seeding.js ```
    this script will populate each tables
