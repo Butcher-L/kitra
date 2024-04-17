@@ -29,7 +29,7 @@ app.get('/find-treasures', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-//bunos
+//bonus
 app.get('/find-nearest-treasure', async (req, res) => {
   try {
     const result = await findNearestTreasure(req);
