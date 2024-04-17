@@ -1,6 +1,6 @@
 # Steps
 
-1. Clone the repo using this \n
+1. Clone the repo using this `\n`
 ```https://github.com/Butcher-L/kitra.git```
 2. Run ```npm install```
 3. Ensure that you stablish a database for the project
