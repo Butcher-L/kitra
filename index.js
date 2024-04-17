@@ -1,6 +1,10 @@
 import express from 'express';
 import { establishMySQLConnection } from './helpers/mysql.js';
-import {findTreasure} from  './controllers/treasures.js'
+import {
+  findTreasure,
+  findTreasuresWithPrize,
+  findNearestTreasure
+} from  './controllers/treasures.js'
 const app = express();
 
 const connection = await establishMySQLConnection()
@@ -8,21 +12,31 @@ if(!connection){
     throw new Error("Connection error")
 }
 
-
-
-// Define API endpoints
 app.get('/find-treasure', async (req, res) => {
-
-    const result = await findTreasure(req)
-
-    res.status(200).json(result)
-  // Logic to collect treasure and insert into database
-  // Use req.body to access data sent in the request
+  try {
+    const result = await findTreasure(req);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
-app.get('/highest-money-value', (req, res) => {
-  // Logic to retrieve the highest money value from treasures
-  // Send the result as JSON response
+app.get('/find-treasures', async (req, res) => {
+  try {
+    const result = await findTreasuresWithPrize(req);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+//bunos
+app.get('/find-nearest-treasure', async (req, res) => {
+  try {
+    const result = await findNearestTreasure(req);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // Start the server

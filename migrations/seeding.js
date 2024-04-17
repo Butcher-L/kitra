@@ -29,11 +29,15 @@ connection.query(`INSERT INTO users (name, age, password, email) VALUES
 
 // Seed sample data for money_values
 connection.query(`INSERT INTO money_values (treasure_id, amt) VALUES
-  (1, 1000.00),
-  (1, 500.00),
-  (2, 1500.00),
-  (3, 800.00),
-  (3, 1200.00);`, (err, results, fields) => {
+  (1, 10.00),
+  (1, 20.00),
+  (2, 30.00),
+  (2, 40.00),
+  (3, 50.00),
+  (3, 20.00),
+  (4, 10.00),
+  (5, 50.00),
+  (4, 20.00);`, (err, results, fields) => {
     if (err) {
       console.error('Error seeding money_values data: ' + err.stack);
       return;
