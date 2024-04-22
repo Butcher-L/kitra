@@ -1,9 +1,11 @@
 import { establishMySQLConnection } from "../helpers/mysql.js";
+import dotenv from 'dotenv'
+dotenv.config();
 
 const connection = await establishMySQLConnection()
 
 // Create treasures table
-connection.query(`CREATE TABLE treasures (
+connection.query(`CREATE TABLE ${process.env.MYSQLDATABASE}.treasures (
     id INT AUTO_INCREMENT PRIMARY KEY,
     Latitude DECIMAL(10, 8),
     Longitude DECIMAL(11, 8),
@@ -17,7 +19,7 @@ connection.query(`CREATE TABLE treasures (
 });
 
 // Create users table
-connection.query(`CREATE TABLE users (
+connection.query(`CREATE TABLE ${process.env.MYSQLDATABASE}.users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
     age INT,
@@ -32,7 +34,7 @@ connection.query(`CREATE TABLE users (
 });
 
 // Create money_values table
-connection.query(`CREATE TABLE money_values (
+connection.query(`CREATE TABLE ${process.env.MYSQLDATABASE}.money_values (
     id INT AUTO_INCREMENT PRIMARY KEY,
     treasure_id INT,
     amt DECIMAL(10, 2),

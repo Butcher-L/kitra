@@ -2,7 +2,7 @@ import { establishMySQLConnection } from "../helpers/mysql.js";
 const connection = await establishMySQLConnection()
 
 // Seed sample data for treasures
-connection.query(`INSERT INTO treasures (Latitude, Longitude, Name) VALUES
+connection.query(`INSERT INTO ${process.env.MYSQLDATABASE}.treasures (Latitude, Longitude, Name) VALUES
   (40.7128, -74.0060, 'Statue of Liberty'),
   (48.8566, 2.3522, 'Eiffel Tower'),
   (-33.8688, 151.2093, 'Sydney Opera House'),
@@ -17,7 +17,7 @@ connection.query(`INSERT INTO treasures (Latitude, Longitude, Name) VALUES
 });
 
 // Seed sample data for users
-connection.query(`INSERT INTO users (name, age, password, email) VALUES
+connection.query(`INSERT INTO ${process.env.MYSQLDATABASE}.users (name, age, password, email) VALUES
   ('John Doe', 30, 'password123', 'john@example.com'),
   ('Jane Smith', 25, 'secret456', 'jane@example.com');`, (err, results, fields) => {
     if (err) {
@@ -28,7 +28,7 @@ connection.query(`INSERT INTO users (name, age, password, email) VALUES
 });
 
 // Seed sample data for money_values
-connection.query(`INSERT INTO money_values (treasure_id, amt) VALUES
+connection.query(`INSERT INTO ${process.env.MYSQLDATABASE}.money_values (treasure_id, amt) VALUES
   (1, 10.00),
   (1, 20.00),
   (2, 30.00),
