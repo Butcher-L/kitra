@@ -1,4 +1,7 @@
 import { establishMySQLConnection } from "../helpers/mysql.js";
+import dotenv from 'dotenv'
+dotenv.config();
+
 const connection = await establishMySQLConnection()
 
 // Seed sample data for treasures
